@@ -1,6 +1,8 @@
 # Tetris App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created and coded with React and JS. The goal of this project is to build knowledge in JS and continue working with the React library.
+
+This app mostly follows this guide: [https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder](https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder)
 
 ## Available Scripts
 
