@@ -4,6 +4,9 @@ This project was created and coded with React and JS. The goal of this project i
 
 This app mostly follows this guide: [https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder](https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder)
 
+## To-Do
+- Design better logo
+
 ## Available Scripts
 
 In the project directory, you can run:
