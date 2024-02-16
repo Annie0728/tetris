@@ -6,6 +6,11 @@ This app mostly follows this guide: [https://www.youtube.com/watch?v=yCEIgEOZ36g
 
 ## To-Do
 - Design better logo
+- Define a theme:
+    - #282C34: background
+    - #8A84E2 and #59588B: buttons
+    - #44CFCB
+    - #FFEAEE
 
 ## Available Scripts
 
