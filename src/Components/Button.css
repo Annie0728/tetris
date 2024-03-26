@@ -8,7 +8,7 @@
   height: 50px;
   width: 150px;
   font-size: 1.0em;
-  margin: 10px 0px;
+  margin: 20px 0px;
   cursor: pointer;
   transition: ease background-color 250ms;
   &:hover {

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import './Board.css';
+import StartButton from "./StartButton";
 
-function StartButton() {
+function Board() {
   return (
-    <div className="menu">
-      
+    <div className="Board">
+      <StartButton />
     </div>
   );
 }
     
-export default StartButton;
+export default Board;

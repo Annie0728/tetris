@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import './App.css';
-import StartButton from "./Components/StartButton";
+import Page from "./Components/Page";
 
 function App() {
   return (
     <div className="App">
       <h1>TETRIS</h1>
-      <StartButton />
+      <Page />
     </div>
   );
 }

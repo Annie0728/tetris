@@ -6,8 +6,10 @@ This app mostly follows this guide: [https://www.youtube.com/watch?v=yCEIgEOZ36g
 
 ## To-Do
 - Design better logo
+- Implement rules button (should open a pop-up with the rules)
 - Define a theme:
     - #282C34: background
+    - #32363D: board background
     - #8A84E2 and #59588B: buttons
     - #44CFCB
     - #FFEAEE

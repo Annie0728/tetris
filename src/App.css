@@ -1,8 +1,11 @@
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   background-color: #282c34;
   font-family: sans-serif, 'Roboto';
   color: white;
   min-height: 100vh;
-  padding: 30px;
 }
