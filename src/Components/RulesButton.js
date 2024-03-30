@@ -1,12 +1,12 @@
 import React from "react";
 import './Button.css';
 
-function StartButton() {
+function RulesButton(props) {
   return (
     <div className="rulesButton">
-      <button className="Button">Rules</button>
+      <button className="Button" onClick={() => props.setPopup(true)}>Rules</button>
     </div>
   );
 }
   
-export default StartButton;
+export default RulesButton;

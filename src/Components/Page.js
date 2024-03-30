@@ -4,12 +4,12 @@ import Board from "./Board";
 import PieceBox from "./PieceBox";
 import RulesButton from "./RulesButton";
 
-function Page() {
+function Page(props) {
     return (
       <div className="Page">
         <Board />
         <PieceBox />
-        <RulesButton />
+        <RulesButton setPopup={props.setPopup} />
       </div>
     );
 }
