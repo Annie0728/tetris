@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import './App.css';
 import Board from "./Components/Board";
 import PieceBox from "./Components/PieceBox";
-import Score from "./Components/Score";
 import Rules from "./Components/Rules";
+import Wacky from "./Components/Wacky";
 import { Typography, Box, Grid, Stack, Button, Tooltip } from '@mui/material';
 import RuleIcon from '@mui/icons-material/Rule';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -32,13 +32,18 @@ const theme = createTheme({
 
 function App() {
   const [open, setOpen] = useState(false);
-
   const handleOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const [score, setScore] = useState(0);
+
+  const [checked, setChecked] = useState(false);
+  const handleWacky = (event) => {
+    setChecked(event.target.checked);
   };
 
   return (
@@ -48,30 +53,32 @@ function App() {
         <Box pt={3}>
           <Grid container spacing={2}>
           <Grid item>
-            <Board />
+            <Board wacky={checked} score={score} setScore={setScore} />
           </Grid>
-          <Grid item>
-            <Stack spacing={2} justifyContent="center" alignItems="center">
-              <Score />
-              <PieceBox />
-              <Tooltip title="How to play Tetris!" arrow componentsProps={{
-                  tooltip: {
-                    sx: {
-                      bgcolor: 'primary.hover',
-                      '& .MuiTooltip-arrow': {
-                        color: 'primary.hover',
+            <Grid item>
+              <Stack spacing={2} justifyContent="center" alignItems="center">
+                <Typography variant="h6" gutterBottom>Score: {score}</Typography>
+                <PieceBox />
+                <Tooltip title="How to play Tetris" arrow componentsProps=
+                  {{
+                    tooltip: {
+                      sx: {
+                        bgcolor: 'primary.hover',
+                        '& .MuiTooltip-arrow': {
+                          color: 'primary.hover',
+                        },
                       },
                     },
-                  },
-                }}
-              >
-                <Button variant="contained" size="large" startIcon={<RuleIcon />} onClick={() => handleOpen()}>Rules</Button>
-              </Tooltip>
-            </Stack>
+                  }}
+                >
+                  <Button variant="contained" size="large" endIcon={<RuleIcon />} onClick={() => handleOpen()}>Rules</Button>
+                </Tooltip>
+                <Wacky checked={checked} handleWacky={handleWacky} />
+              </Stack>
+            </Grid>
           </Grid>
-          </Grid>
+          <Rules open={open} handleClose={handleClose} wacky={checked} />
         </Box>
-        <Rules open={open} handleClose={handleClose} />
       </ThemeProvider>
     </div>
   );

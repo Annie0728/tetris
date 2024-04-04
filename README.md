@@ -7,6 +7,10 @@ This app mostly follows this guide: [https://www.youtube.com/watch?v=yCEIgEOZ36g
 ## To-Do
 - Design better logo
 - Implement rules button (should open a pop-up with the rules)
+- Add a special mode (more pieces)
+    - One block
+    - Two blocks
+    - Three blocks (straight line and angled)
 - Define a theme:
     - #282C34: background
     - #32363D: board background
