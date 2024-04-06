@@ -3,7 +3,6 @@ import './App.css';
 import Board from "./Components/Board";
 import PieceBox from "./Components/PieceBox";
 import Rules from "./Components/Rules";
-import Wacky from "./Components/Wacky";
 import { Typography, Box, Grid, Stack, Button, Tooltip } from '@mui/material';
 import RuleIcon from '@mui/icons-material/Rule';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -41,11 +40,6 @@ function App() {
 
   const [score, setScore] = useState(0);
 
-  const [checked, setChecked] = useState(false);
-  const handleWacky = (event) => {
-    setChecked(event.target.checked);
-  };
-
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
@@ -53,7 +47,7 @@ function App() {
         <Box pt={3}>
           <Grid container spacing={2}>
           <Grid item>
-            <Board wacky={checked} score={score} setScore={setScore} />
+            <Board score={score} setScore={setScore} />
           </Grid>
             <Grid item>
               <Stack spacing={2} justifyContent="center" alignItems="center">
@@ -73,11 +67,10 @@ function App() {
                 >
                   <Button variant="contained" size="large" endIcon={<RuleIcon />} onClick={() => handleOpen()}>Rules</Button>
                 </Tooltip>
-                <Wacky checked={checked} handleWacky={handleWacky} />
               </Stack>
             </Grid>
           </Grid>
-          <Rules open={open} handleClose={handleClose} wacky={checked} />
+          <Rules open={open} handleClose={handleClose} />
         </Box>
       </ThemeProvider>
     </div>

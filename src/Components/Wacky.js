@@ -3,8 +3,8 @@ import { Box, Typography, Switch, Tooltip } from '@mui/material';
 
 function Wacky(props) {
   return (
-    <Box display="flex" direction="row">
-      <Typography variant="h6" gutterBottom>Play wacky tetris: </Typography>
+    <Box>
+      <Typography variant="button" gutterBottom>Play wacky tetris: </Typography>
       <Tooltip title="Switch on to play wacky Tetris!" arrow componentsProps=
         {{
           tooltip: {

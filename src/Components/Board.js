@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Box, Button } from '@mui/material';
+import Wacky from "./Wacky";
+import { Box, Stack, Button, Typography, Switch } from '@mui/material';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 
 function Board(props) {
@@ -10,6 +11,11 @@ function Board(props) {
   };
   const handleEndGame = () => {
     setGame(false);
+  };
+
+  const [checked, setChecked] = useState(false);
+  const handleWacky = (event) => {
+    setChecked(event.target.checked);
   };
 
   return (
@@ -29,7 +35,10 @@ function Board(props) {
           bgcolor: 'board_background.main'
         }}
       >
-        <Button variant="contained" size="large" endIcon={<PlayCircleFilledWhiteIcon />}>Start New Game</Button>
+        <Stack spacing={5}>
+          <Button variant="contained" size="large" endIcon={<PlayCircleFilledWhiteIcon />}>Start New Game</Button>
+          <Wacky checked={checked} handleWacky={handleWacky} />
+        </Stack>
       </Box>
     </div>
   );

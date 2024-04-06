@@ -1,5 +1,6 @@
-import React from "react";
-import { Dialog, DialogTitle, DialogContent, DialogContentText, IconButton } from '@mui/material';
+import React, { useState } from "react";
+import PropTypes from 'prop-types';
+import { Dialog, DialogTitle, DialogContent, IconButton, Box, Typography, Tab, Tabs } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 
@@ -7,7 +8,45 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`tabpanel-${index}`}
+      aria-labelledby={`tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `tab-${index}`,
+    'aria-controls': `tabpanel-${index}`,
+  };
+}
+
 function Rules(props) {
+  const [value, setValue] = useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <Dialog 
       open = {props.open} 
@@ -28,19 +67,25 @@ function Rules(props) {
         <CloseIcon />
       </IconButton>
       <DialogContent dividers>
-        {props.wacky === true ? 
-          <DialogContentText>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-            ullamcorper nulla non metus auctor fringilla.
-          </DialogContentText>
-            : 
-          <DialogContentText>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </DialogContentText>
-        }
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          sx={{ borderBottom: 1, borderColor: 'divider' }}
+        >
+          <Tab label="Regular Rules" {...a11yProps(0)} />
+          <Tab label="Wacky Rules" {...a11yProps(1)} />
+        </Tabs>
+        <TabPanel value={value} index={0}>
+          Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
+          magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
+          ullamcorper nulla non metus auctor fringilla.
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+          imperdiet.
+        </TabPanel>
       </DialogContent>
     </Dialog>
   );
