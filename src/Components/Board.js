@@ -1,21 +1,20 @@
 import React, { useState } from "react";
+import { useStartGame } from "../Hooks/useStartGame";
 import Wacky from "./Wacky";
-import { Box, Stack, Button, Typography, Switch } from '@mui/material';
+import Tetris from "./Tetris";
+import { Box, Stack, Button } from '@mui/material';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 
 function Board(props) {
-  const [game, setGame] = useState(false);
-  const handleStartGame = () => {
-    setGame(true);
-    props.setScore(0);
-  };
-  const handleEndGame = () => {
-    setGame(false);
-  };
+  const [game, setGame, resetGame] = useStartGame();
 
   const [checked, setChecked] = useState(false);
   const handleWacky = (event) => {
     setChecked(event.target.checked);
+  };
+
+  const startGame = () => {
+    resetGame();
   };
 
   return (
@@ -35,10 +34,14 @@ function Board(props) {
           bgcolor: 'board_background.main'
         }}
       >
-        <Stack spacing={5}>
-          <Button variant="contained" size="large" endIcon={<PlayCircleFilledWhiteIcon />}>Start New Game</Button>
-          <Wacky checked={checked} handleWacky={handleWacky} />
-        </Stack>
+        {game ? (
+          <Tetris />
+        ) : (
+          <Stack spacing={5}>
+            <Button variant="contained" size="large" endIcon={<PlayCircleFilledWhiteIcon />} onClick={startGame}>Start New Game</Button>
+            <Wacky checked={checked} handleWacky={handleWacky} />
+          </Stack>
+        )}
       </Box>
     </div>
   );
