@@ -4,7 +4,10 @@ This project was created and coded with React and JS. The goal of this project i
 
 This app mostly follows this guide: [https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder](https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder)
 
+Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX8HIU&ab_channel=freeCodeCamp.org](https://www.youtube.com/watch?v=ZGOaCxX8HIU&ab_channel=freeCodeCamp.org)
+
 ## To-Do
+- Change Board styling to CSS to better align it with JS logic
 - Design better logo
 - Implement rules button (should open a pop-up with the rules)
 - Add a special mode (more pieces)

@@ -6,7 +6,7 @@ function PieceBox() {
     <div className="PieceBox">
       <Box 
         height = '20vh'
-        width = '250px'
+        width = '20vh'
         gap={4}
         p={2}
         mb={5}

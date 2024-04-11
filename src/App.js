@@ -46,9 +46,9 @@ function App() {
         <Typography variant="h4" gutterBottom>TETRIS</Typography>
         <Box pt={3}>
           <Grid container spacing={2}>
-          <Grid item>
-            <Board score={score} setScore={setScore} />
-          </Grid>
+            <Grid item>
+              <Board score={score} setScore={setScore} />
+            </Grid>
             <Grid item>
               <Stack spacing={2} justifyContent="center" alignItems="center">
                 <Typography variant="h6" gutterBottom>Score: {score}</Typography>
