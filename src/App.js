@@ -47,6 +47,9 @@ function App() {
         <Box pt={3}>
           <Grid container spacing={2}>
             <Grid item>
+              <Box width = '20vh' />
+            </Grid>
+            <Grid item>
               <Board score={score} setScore={setScore} />
             </Grid>
             <Grid item>
