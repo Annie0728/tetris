@@ -14,6 +14,7 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
     - One block
     - Two blocks
     - Three blocks (straight line and angled)
+    - Can hold a block
 - Define a theme:
     - #282C34: background
     - #32363D: board background

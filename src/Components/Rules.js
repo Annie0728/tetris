@@ -76,15 +76,21 @@ function Rules(props) {
           <Tab label="Wacky Rules" {...a11yProps(1)} />
         </Tabs>
         <TabPanel value={value} index={0}>
-          Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-          magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-          ullamcorper nulla non metus auctor fringilla.
+          Combine different tetrominoes (the pieces) together in horizontal rows to earn points! Try to get the highest score you can! 
+          <ul>
+            <li>Use the left and right arrow keys to move the tetrominoes</li>
+            <li>Use the down arrow key to soft drop the tetromino</li>
+            <li>Use the "Z" and "X" keys to rotate the tetrominoes counter-clockwise and clockwise respectively</li>
+            <li>Use the "Space" key to instantly hard drop the tetromino</li>
+            <li>Use the "P" key to pause the game</li>
+          </ul>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet.
+          Wacky Tetris is like normal Tetris but with the ability to hold a piece at any time and has extra tetrominoes:
+          (Image of the new tetronimoes)
+          <ul>
+            <li>Use the "C" key to hold a piece. If there is already a piece in the "Hold" box to the left, it swaps the piece currently in play with the one in the box</li>
+          </ul>
         </TabPanel>
       </DialogContent>
     </Dialog>
