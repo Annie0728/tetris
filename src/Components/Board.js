@@ -12,11 +12,6 @@ function Board(props) {
     resetGame();
   };
 
-  const [checked, setChecked] = useState(false);
-  const handleWacky = (event) => {
-    setChecked(event.target.checked);
-  };
-
   const rows = 20;
   const columns = 10;
   const [board, setBoard] = useTetrisBoard({rows, columns});
@@ -43,7 +38,7 @@ function Board(props) {
         ) : (
           <Stack spacing={5}>
             <Button variant="contained" size="large" endIcon={<PlayCircleFilledWhiteIcon />} onClick={startGame}>Start New Game</Button>
-            <Wacky checked={checked} handleWacky={handleWacky} />
+            <Wacky checked={props.checked} handleWacky={props.handleWacky} />
           </Stack>
         )}
       </Box>

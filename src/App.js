@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './App.css';
+import HoldBox from "./Components/HoldBox";
 import Board from "./Components/Board";
 import PieceBox from "./Components/PieceBox";
 import Rules from "./Components/Rules";
@@ -40,6 +41,11 @@ function App() {
 
   const [score, setScore] = useState(0);
 
+  const [checked, setChecked] = useState(false);
+  const handleWacky = (event) => {
+    setChecked(event.target.checked);
+  };
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
@@ -47,10 +53,13 @@ function App() {
         <Box pt={3}>
           <Grid container spacing={2}>
             <Grid item>
-              <Box width = '20vh' />
+              <Stack spacing={2} justifyContent="center" alignItems="center">
+                <Typography variant="h6" gutterBottom>Mode: {checked ? "Wacky" : "Normal"}</Typography>
+                <HoldBox checked={checked} />
+              </Stack>
             </Grid>
             <Grid item>
-              <Board score={score} setScore={setScore} />
+              <Board score={score} setScore={setScore} checked={checked} handleWacky={handleWacky} />
             </Grid>
             <Grid item>
               <Stack spacing={2} justifyContent="center" alignItems="center">
