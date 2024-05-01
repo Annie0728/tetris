@@ -18,11 +18,11 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
     - Three blocks (straight line and angled)
     - Can hold a block
 - Define a theme:
-    - #282C34: background
-    - #32363D: board background
-    - #8A84E2 and #59588B: buttons
-    - #44CFCB
-    - #FFEAEE
+    - ![#282C34](https://placehold.co/15x15/282C34/282C34.png) `#282C34`: background
+    - ![#32363D](https://placehold.co/15x15/32363D/32363D.png) `#32363D`: board background
+    - ![#8A84E2](https://placehold.co/15x15/8A84E2/8A84E2.png) `#8A84E2` and ![#59588B](https://placehold.co/15x15/59588B/59588B.png) `#59588B`: buttons
+    - ![#625BC2](https://placehold.co/15x15/625BC2/625BC2.png) `#625BC2` (dark purple, T), ![#207AD5](https://placehold.co/15x15/207AD5/207AD5.png) `#207AD5` (dark blue, J), ![#1FB7EA](https://placehold.co/15x15/1FB7EA/1FB7EA.png) `#1FB7EA` (light blue, I), ![#72C07B](https://placehold.co/15x15/72C07B/72C07B.png) `#72C07B` (green, S), ![#FFDA85](https://placehold.co/15x15/FFDA85/FFDA85.png) `#FFDA85` (yellow, O), ![#F9A287](https://placehold.co/15x15/F9A287/F9A287.png) `#F9A287` (orange, L), ![#F26989](https://placehold.co/15x15/F26989/F26989.png) `#F26989` (dark pink, Z): original block colors
+    - ![#8A84E2](https://placehold.co/15x15/8A84E2/8A84E2.png) `#8A84E2` (light purple, I2), ![#44CFCB](https://placehold.co/15x15/44CFCB/44CFCB.png) `#44CFCB` (teal, DOT), ![#D373B3](https://placehold.co/15x15/D373B3/D373B3.png) `#D373B3` (magenta, V), ![#E2A1CC](https://placehold.co/15x15/E2A1CC/E2A1CC.png) `#E2A1CC` (light pink, I3): wacky block colors
 
 ## Available Scripts
 
