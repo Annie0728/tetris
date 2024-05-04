@@ -17,7 +17,7 @@ function Wacky(props) {
           },
         }}
       >
-        <Switch checked={props.checked} onChange={props.handleWacky} size="large" />
+        <Switch wacky={props.wacky} onChange={props.handleWacky} size="large" />
       </Tooltip>
     </Box>
   );

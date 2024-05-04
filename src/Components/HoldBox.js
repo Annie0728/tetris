@@ -17,7 +17,7 @@ function HoldBox(props) {
         }}
       >
         <Typography variant="h6" gutterBottom>Held Piece:</Typography>
-        {props.checked ? null : <BlockIcon sx={{ fontSize: 140, color: '#8A84E2' }} />}
+        {props.wacky ? null : <BlockIcon sx={{ fontSize: 140, color: '#8A84E2' }} />}
       </Box>
     </div>
   );

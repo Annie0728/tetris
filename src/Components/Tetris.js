@@ -2,7 +2,9 @@ import React, { useState } from "react";
 
 function Tetris(props) {
   return (
-    <canvas id="playing-game"></canvas>
+    <canvas id="playing-game">
+
+    </canvas>
   );
 }
     

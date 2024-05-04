@@ -41,9 +41,9 @@ function App() {
 
   const [score, setScore] = useState(0);
 
-  const [checked, setChecked] = useState(false);
+  const [wacky, setWacky] = useState(false);
   const handleWacky = (event) => {
-    setChecked(event.target.checked);
+    setWacky(event.target.checked);
   };
 
   return (
@@ -54,12 +54,12 @@ function App() {
           <Grid container spacing={2}>
             <Grid item>
               <Stack spacing={2} justifyContent="center" alignItems="center">
-                <Typography variant="h6" gutterBottom>Mode: {checked ? "Wacky" : "Normal"}</Typography>
-                <HoldBox checked={checked} />
+                <Typography variant="h6" gutterBottom>Mode: {wacky ? "Wacky" : "Normal"}</Typography>
+                <HoldBox wacky={wacky} />
               </Stack>
             </Grid>
             <Grid item>
-              <Board score={score} setScore={setScore} checked={checked} handleWacky={handleWacky} />
+              <Board score={score} setScore={setScore} wacky={wacky} handleWacky={handleWacky} />
             </Grid>
             <Grid item>
               <Stack spacing={2} justifyContent="center" alignItems="center">

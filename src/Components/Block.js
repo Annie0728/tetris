@@ -1,4 +1,8 @@
 const blocks = {
+  fill : {
+    shape: [[0]],
+    color: 'transparent'
+  },
   I : {
     shape: [
       [0, 1, 0, 0],
@@ -59,7 +63,11 @@ const blocks = {
   }
 };
 
-const wacky_blocks = {
+const wackyBlocks = {
+  fill : {
+    shape: [[0]],
+    color: 'transparent'
+  },
   I : {
     shape: [
       [0, 1, 0, 0],
@@ -149,4 +157,18 @@ const wacky_blocks = {
   }
 };
 
-export {blocks, wacky_blocks};
+const randomBlock = () => {
+  var keys = ['I', 'L', 'J', 'O', 'S', 'Z', 'T'];
+  var random = keys[Math.floor(Math.random() * keys.length)];
+
+  return blocks[random];
+};
+
+const randomWackyBlock = () => {
+  var keys = ['I', 'L', 'J', 'O', 'S', 'Z', 'T', 'DOT', 'I2', 'I3', 'V'];
+  var random = keys[Math.floor(Math.random() * keys.length)];
+
+  return blocks[random];
+};
+
+export {blocks, wackyBlocks, randomBlock, randomWackyBlock};
