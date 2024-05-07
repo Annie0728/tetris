@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import Block from "./Block";
 
 function Tetris(props) {
   return (
-    <canvas id="playing-game">
-
-    </canvas>
+    <div>
+      {props.board.map(row => row.map((block, x) => <Block key={x} type={block[0]} />))}
+    </div>
   );
 }
     

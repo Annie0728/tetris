@@ -1,20 +1,14 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import Wacky from "./Wacky";
 import Tetris from "./Tetris";
 import { Box, Stack, Button } from '@mui/material';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
+import { createGame } from "../Hooks/TetrisHelp";
 
 function Board(props) {
-  const rows = 20;
-  const columns = 10;
-  
   const [gameOver, setGameOver] = useState(true);
-  const resetGame = useCallback(() => {
-    setGameOver(false);
-  }, []);
-
   const startGame = () => {
-    resetGame();
+    setGameOver(false);
   };
 
   return (
@@ -40,7 +34,7 @@ function Board(props) {
             <Wacky wacky={props.wacky} handleWacky={props.handleWacky} />
           </Stack>
         ) : (
-          <Tetris rows={rows} columns={columns} wacky={props.wacky} setGameOver={setGameOver} />
+          <Tetris wacky={props.wacky} board={createGame()} />
         )}
       </Box>
     </div>
