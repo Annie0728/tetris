@@ -11,7 +11,6 @@ function HoldBox(props) {
         gap={4}
         p={2}
         sx={{ 
-          borderRadius: '25px',
           border: '3px solid white',
           bgcolor: 'board_background.main'
         }}

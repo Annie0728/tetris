@@ -17,22 +17,25 @@ function Board(props) {
         height = '80vh'
         width = '40vh'
         gap={4}
-        p={2}
-        display="flex"
         direction="column"
-        alignItems="center"
-        justifyContent="center"
         sx={{ 
-          borderRadius: '25px',
           border: '3px solid white',
           bgcolor: 'board_background.main'
         }}
       >
         {gameOver ? (
-          <Stack spacing={5}>
-            <Button variant="contained" size="large" endIcon={<PlayCircleFilledWhiteIcon />} onClick={startGame}>Start New Game</Button>
-            <Wacky wacky={props.wacky} handleWacky={props.handleWacky} />
-          </Stack>
+          <Box
+            height = '100%'
+            width = '100%'
+            display="flex" 
+            alignItems="center" 
+            justifyContent="center"
+          >
+            <Stack spacing={5}>
+              <Button variant="contained" size="large" endIcon={<PlayCircleFilledWhiteIcon />} onClick={startGame}>Start New Game</Button>
+              <Wacky wacky={props.wacky} handleWacky={props.handleWacky} />
+            </Stack>
+          </Box>
         ) : (
           <Tetris wacky={props.wacky} board={createGame()} />
         )}

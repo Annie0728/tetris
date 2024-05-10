@@ -60,71 +60,6 @@ const minoes = {
       [0, 0, 0]
     ],
     color: '#72C07B'
-  }
-};
-
-const wackyMinoes = {
-  fill : {
-    shape: [[0]],
-    color: 'transparent'
-  },
-  I : {
-    shape: [
-      [0, 1, 0, 0],
-      [0, 1, 0, 0],
-      [0, 1, 0, 0],
-      [0, 1, 0, 0]
-    ],
-    color: '#1FB7EA'
-  },
-  L : {
-    shape: [
-      [0, 1, 0],
-      [0, 1, 0],
-      [0, 1, 1]
-    ],
-    color: '#F9A287'
-  },
-  J : {
-    shape: [
-      [0, 1, 0],
-      [0, 1, 0],
-      [1, 1, 0]
-    ],
-    color: '#207AD5'
-  },
-  O : {
-    shape: [
-      [0, 0, 0, 0],
-      [0, 1, 1, 0],
-      [0, 1, 1, 0],
-      [0, 0, 0, 0]
-    ],
-    color: '#FFDA85'
-  },
-  T : {
-    shape: [
-      [0, 0, 0],
-      [1, 1, 1],
-      [0, 1, 0]
-    ],
-    color: '#625BC2'
-  },
-  Z : {
-    shape: [
-      [1, 1, 0],
-      [0, 1, 1],
-      [0, 0, 0]
-    ],
-    color: '#F26989'
-  },
-  S : {
-    shape: [
-      [0, 1, 1],
-      [1, 1, 0],
-      [0, 0, 0]
-    ],
-    color: '#72C07B'
   },
   DOT : {
     shape: [
@@ -168,7 +103,7 @@ const randomWackyMino = () => {
   var keys = ['I', 'L', 'J', 'O', 'S', 'Z', 'T', 'DOT', 'I2', 'I3', 'V'];
   var random = keys[Math.floor(Math.random() * keys.length)];
 
-  return wackyMinoes[random];
+  return minoes[random];
 };
 
-export {minoes, wackyMinoes, randomMino, randomWackyMino};
+export {minoes, randomMino, randomWackyMino};

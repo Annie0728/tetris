@@ -9,9 +9,8 @@ function PieceBox() {
         width = '20vh'
         gap={4}
         p={2}
-        mb={5}
+        mb={3}
         sx={{ 
-          borderRadius: '25px',
           border: '3px solid white',
           bgcolor: 'board_background.main'
         }}
