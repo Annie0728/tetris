@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import { minoes } from './Tetromino';
 
 function Block(props) {
-  var isFill = props.type === 'fill';
+  var isFill = props.type === 0;
   var color = minoes[props.type].color;
 
   return (

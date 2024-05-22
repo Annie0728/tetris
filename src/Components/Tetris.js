@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Block from "./Block";
 import { Box } from '@mui/material';
-import { rows, columns } from "../Hooks/TetrisHelp";
 
 function Tetris(props) {
   return (
@@ -10,8 +9,8 @@ function Tetris(props) {
       width = '100%'
       sx={{
         display: 'grid',
-        gridTemplateRows: 'repeat(' + rows + ', 1fr)',
-        gridTemplateColumns: 'repeat(' + columns + ', 1fr)',
+        gridTemplateRows: 'repeat(' + props.rows + ', 1fr)',
+        gridTemplateColumns: 'repeat(' + props.columns + ', 1fr)',
         gap: '1px'
       }}
     >

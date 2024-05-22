@@ -1,7 +1,7 @@
 const minoes = {
-  fill : {
+  0 : {
     shape: [[0]],
-    color: 'transparent'
+    color: '#32363D'
   },
   I : {
     shape: [

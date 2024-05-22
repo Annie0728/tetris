@@ -3,12 +3,20 @@ import Wacky from "./Wacky";
 import Tetris from "./Tetris";
 import { Box, Stack, Button } from '@mui/material';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
-import { createGame } from "../Hooks/TetrisHelp";
+import { buildBoard } from "../Util/TetrisHelp";
+import { useGameOver } from "../Hooks/useGameOver";
+import { usePlayer } from "../Hooks/usePlayer";
+import { useBoard } from "../Hooks/useBoard";
 
 function Board(props) {
-  const [gameOver, setGameOver] = useState(true);
+  const rows = 20;
+  const columns = 10;
+
+  const [gameOver, setGameOver, resetGameOver] = useGameOver();
+  const [board, setBoard] = useBoard(rows, columns);
+
   const startGame = () => {
-    setGameOver(false);
+    resetGameOver();
   };
 
   return (
@@ -37,7 +45,7 @@ function Board(props) {
             </Stack>
           </Box>
         ) : (
-          <Tetris wacky={props.wacky} board={createGame()} />
+          <Tetris rows={rows} columns={columns} wacky={props.wacky} board={board} />
         )}
       </Box>
     </div>
