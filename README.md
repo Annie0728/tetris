@@ -9,10 +9,8 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
 [https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained](https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained)
 
 ## To-Do
-- Change Board styling to CSS to better align it with JS logic
 - Design better logo
-- Implement rules button (should open a pop-up with the rules)
-- Add a special mode (more pieces)
+- Add a special wacky mode (more pieces)
     - One block
     - Two blocks
     - Three blocks (straight line and angled)

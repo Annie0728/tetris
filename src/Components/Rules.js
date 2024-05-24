@@ -49,8 +49,8 @@ function Rules(props) {
 
   return (
     <Dialog 
-      open = {props.open} 
-      onClose = {props.handleClose}
+      open = {props.openRules} 
+      onClose = {props.handleCloseRules}
       TransitionComponent = {Transition}
       keepMounted
     >

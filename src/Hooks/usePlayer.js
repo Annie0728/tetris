@@ -1,22 +1,31 @@
 import { useState, useCallback } from "react";
 import { randomMino, randomWackyMino } from "../Components/Tetromino";
 
-export function usePlayer(wacky) {
-  /*
-  const [player, setPlayer] = useState({
-    currentPosition: { x : columns / 2 - 2, y : 0 },
-    mino: wacky ? randomWackyMino().shape : randomMino().shape,
-    collide: false
-  });
+const buildPlayer = (prev) => {
+  let minoes;
+
+  if (prev) {
+    minoes = [...prev.minoes];
+    minoes.unshift(randomMino());
+  } else {
+    minoes = Array(2).fill(0).map((_) => randomMino());
+  }
+
+  return {
+    collided: false,
+    isFastDropping: false,
+    position: { row: 0, column: 4},
+    minoes,
+    mino: minoes.pop()
+  }
+};
+
+export function usePlayer() {
+  const [player, setPlayer] = useState(buildPlayer());
 
   const resetPlayer = useCallback(() => {
-    setPlayer({
-      currentPosition: { x : columns / 2 - 2, y : 0 },
-      mino: wacky ? randomWackyMino().shape : randomMino().shape,
-      collide: false
-    })
-  }, [wacky]);
+    setPlayer((prev) => buildPlayer(prev))
+  }, []);
 
   return [player, setPlayer, resetPlayer];
-  */
 }

@@ -1,8 +1,12 @@
-import React, { useState } from "react";
-import { Box, Typography } from '@mui/material';
+import React from "react";
+import Block from "./Block";
+import { Box, Stack, Typography } from '@mui/material';
 import BlockIcon from '@mui/icons-material/Block';
+import { buildBoard, transferToBoard } from '../Util/TetrisHelp';
 
 function HoldBox(props) {
+  let board = buildBoard(4, 4);
+
   return (
     <div className="PieceBox">
       <Box 
@@ -15,8 +19,25 @@ function HoldBox(props) {
           bgcolor: 'board_background.main'
         }}
       >
-        <Typography variant="h6" gutterBottom>Held Piece:</Typography>
-        {props.wacky ? null : <BlockIcon sx={{ fontSize: 140, color: '#8A84E2' }} />}
+        <Stack alignItems="center">
+          <Typography variant="h6" gutterBottom>Held Piece:</Typography>
+          {props.wacky ? 
+            <Box 
+              height = '15vh'
+              width = '15vh'
+              sx={{
+                display: 'grid',
+                gridTemplateRows: 'repeat(4, 1fr)',
+                gridTemplateColumns: 'repeat(4, 1fr)',
+                gap: '1px'
+              }}
+            >
+              {board.map(row => row.map((block, x) => <Block key={x} type={block[0]} />))}
+            </Box>
+            : 
+           <BlockIcon sx={{ fontSize: 140, color: '#8A84E2' }} />
+          }
+        </Stack>
       </Box>
     </div>
   );

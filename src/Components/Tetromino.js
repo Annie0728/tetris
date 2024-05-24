@@ -1,6 +1,7 @@
 const minoes = {
   0 : {
     shape: [[0]],
+    className: 0,
     color: '#32363D'
   },
   I : {
@@ -10,6 +11,7 @@ const minoes = {
       [0, 1, 0, 0],
       [0, 1, 0, 0]
     ],
+    className: "I",
     color: '#1FB7EA'
   },
   L : {
@@ -18,6 +20,7 @@ const minoes = {
       [0, 1, 0],
       [0, 1, 1]
     ],
+    className: "L",
     color: '#F9A287'
   },
   J : {
@@ -26,6 +29,7 @@ const minoes = {
       [0, 1, 0],
       [1, 1, 0]
     ],
+    className: "J",
     color: '#207AD5'
   },
   O : {
@@ -35,6 +39,7 @@ const minoes = {
       [0, 1, 1, 0],
       [0, 0, 0, 0]
     ],
+    className: "O",
     color: '#FFDA85'
   },
   T : {
@@ -43,6 +48,7 @@ const minoes = {
       [1, 1, 1],
       [0, 1, 0]
     ],
+    className: "T",
     color: '#625BC2'
   },
   Z : {
@@ -51,6 +57,7 @@ const minoes = {
       [0, 1, 1],
       [0, 0, 0]
     ],
+    className: "Z",
     color: '#F26989'
   },
   S : {
@@ -59,12 +66,14 @@ const minoes = {
       [1, 1, 0],
       [0, 0, 0]
     ],
+    className: "S",
     color: '#72C07B'
   },
   DOT : {
     shape: [
       [1]
     ],
+    className: "DOT",
     color: '#44CFCB'
   },
   I2 : {
@@ -72,6 +81,7 @@ const minoes = {
       [1, 0],
       [1, 0],
     ],
+    className: "I2",
     color: '#8A84E2'
   },
   I3 : {
@@ -80,6 +90,7 @@ const minoes = {
       [0, 1, 0],
       [0, 1, 0]
     ],
+    className: "I3",
     color: '#E2A1CC'
   },
   V : {
@@ -88,6 +99,7 @@ const minoes = {
       [0, 1, 1],
       [0, 1, 0]
     ],
+    className: "V",
     color: '#D373B3'
   }
 };
