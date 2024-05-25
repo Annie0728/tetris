@@ -5,6 +5,10 @@ import { buildBoard, transferToBoard } from '../Util/TetrisHelp';
 
 function PieceBox(props) {
   let board = buildBoard(4, 4);
+  const previewMino = props.minoes[0];
+  const { shape, color, className } = previewMino;
+
+  board = transferToBoard(className, false, {row: 0, column: 0}, board, shape);
 
   return (
     <div className="PieceBox">

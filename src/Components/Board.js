@@ -17,11 +17,11 @@ function Board(props) {
   const rows = 20;
   const columns = 10;
 
-  const [wacky, setWacky, resetWacky] = useWacky();
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
-  const [board, setBoard] = useBoard(rows, columns);
-  //const [player, setPlayer, resetPlayer] = usePlayer(wacky);
+  const [wacky, setWacky, resetWacky] = useWacky();
+  const [player, setPlayer, resetPlayer] = usePlayer();
   const [stats, addLinesMade] = useStats();
+  const [board] = useBoard(rows, columns, player, resetPlayer, addLinesMade);
 
   const startGame = () => {
     resetGameOver();
@@ -111,7 +111,7 @@ function Board(props) {
                 </Stack>
               </Box>
             ) : (
-              <Tetris rows={rows} columns={columns} wacky={wacky} board={board} />
+              <Tetris rows={rows} columns={columns} board={board} />
             )}
           </Box>
         </Grid>
@@ -120,7 +120,7 @@ function Board(props) {
             {!gameOver ? 
               <div>
                 <Typography variant="h6" gutterBottom>Score: {stats.score}</Typography>
-                <PieceBox />
+                <PieceBox minoes={player.minoes} />
               </div>
                 : 
               <Box 
