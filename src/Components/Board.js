@@ -4,6 +4,7 @@ import PieceBox from "./PieceBox";
 import Rules from "./Rules";
 import Wacky from "./Wacky";
 import Tetris from "./Tetris";
+import Controller from "./Controller";
 import { Typography, Box, Grid, Stack, Button, Tooltip } from '@mui/material';
 import RuleIcon from '@mui/icons-material/Rule';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
@@ -134,6 +135,17 @@ function Board(props) {
         </Grid>
       </Grid>
       <Rules openRules={openRules} handleCloseRules={handleCloseRules} />
+      {!gameOver ?
+        <Controller 
+          board={board}
+          stats={stats}
+          player={player}
+          setPlayer={setPlayer}
+          setGameOver={setGameOver}
+        />
+          :
+        null
+      }
     </div>
   );
 }

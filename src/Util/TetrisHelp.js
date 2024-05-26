@@ -20,8 +20,6 @@ const transferToBoard = (className, isOccupied, position, board, shape) => {
 const nextBoard = (prevBoard, player, resetPlayer, addLinesMade) => {
   const { mino, position } = player;
 
-  console.log(prevBoard);
-
   let newBoard = prevBoard.map((row) => row.map((block) => block[1] ? block : [0, false]));
   newBoard = transferToBoard(mino.className, player.collided, position, newBoard, mino.shape);
 
