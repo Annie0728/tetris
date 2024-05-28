@@ -37,7 +37,7 @@ const isCollided = (board, position, shape) => {
       if (shape[y][x]) {
         const column = x + position.column;
 
-        if (board[row] && board[row][column] && !board[row][column][1]) {
+        if (board[row] && board[row][column] && board[row][column][1]) {
           return true;
         }
       }
@@ -71,9 +71,9 @@ const attemptRotation = (board, player, setPlayer, direction) => {
   const position = player.position;
   
   if (!isCollided(board, position, shape) && withinBoard(board, position, shape)) {
-    return false;
-  } else {
     setPlayer({ ...player, mino: {...player.mino, shape} });
+  } else {
+    return false;
   }
 };
 
