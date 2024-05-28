@@ -1,9 +1,12 @@
 import React from "react";
 import { actions, actionForKey } from "./Keys";
+import { playerController } from "../Util/TetrisHelp";
 
 function Controller(props) {
   const onKeyDown = (key) => {
+    const action = actionForKey(key.code);
 
+    handleInput(action);
   };
 
   const onKeyUp = (key) => {
@@ -12,6 +15,10 @@ function Controller(props) {
     if (action === actions.quit) {
       props.setGameOver(true);
     }
+  };
+
+  const handleInput = (action) => {
+    playerController(action, props.board, props.player, props.setPlayer, props.setGameOver);
   };
 
   return (

@@ -118,4 +118,14 @@ const randomWackyMino = () => {
   return minoes[random];
 };
 
-export {minoes, randomMino, randomWackyMino};
+const rotateMino = (mino, direction) => {
+  const rotatedMino = mino.map((_, index) => mino.map((column) => column[index]));
+
+  if (direction > 0) {
+    return rotatedMino.map(row => row.reverse());
+  }
+
+  return rotatedMino.reverse();
+};
+
+export {minoes, randomMino, randomWackyMino, rotateMino};
