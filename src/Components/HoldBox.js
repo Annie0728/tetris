@@ -2,7 +2,7 @@ import React from "react";
 import Block from "./Block";
 import { Box, Stack, Typography } from '@mui/material';
 import BlockIcon from '@mui/icons-material/Block';
-import { buildBoard, transferToBoard } from '../Util/TetrisHelp';
+import { buildBoard, transferToBoard } from '../Util/BoardHelp';
 
 function HoldBox(props) {
   let board = buildBoard(4, 4);

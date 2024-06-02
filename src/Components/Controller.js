@@ -1,6 +1,6 @@
 import React from "react";
 import { actions, actionForKey } from "./Keys";
-import { playerController } from "../Util/TetrisHelp";
+import { playerController } from "../Util/PlayerHelp";
 
 function Controller(props) {
   const onKeyDown = (key) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import Block from "./Block";
 import { Box, Stack, Typography } from '@mui/material';
-import { buildBoard, transferToBoard } from '../Util/TetrisHelp';
+import { buildBoard, transferToBoard } from '../Util/BoardHelp';
 
 function PieceBox(props) {
   let board = buildBoard(4, 4);
