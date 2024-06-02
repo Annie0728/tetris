@@ -12,7 +12,6 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
 - Design better logo
 - Remember to hide controller input field
 - Add up arrow as a clockwise rotate
-- Test setGameOver for when pieces overflow
 - Add a special wacky mode (more pieces)
     - One block
     - Two blocks

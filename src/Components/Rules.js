@@ -80,7 +80,8 @@ function Rules(props) {
           <ul>
             <li>Use the left and right arrow keys to move the tetrominoes</li>
             <li>Use the down arrow key to soft drop the tetromino</li>
-            <li>Use the "Z" and "X" keys to rotate the tetrominoes counter-clockwise and clockwise respectively</li>
+            <li>Use the up arrow key or "X" key to rotate the tetromino clockwise</li>
+            <li>Use the "Z" to rotate the tetromino counter-clockwise</li>
             <li>Use the "Space" key to instantly hard drop the tetromino</li>
             <li>Use the "P" key to pause the game</li>
           </ul>

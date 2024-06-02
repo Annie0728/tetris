@@ -16,6 +16,7 @@ const keys = {
   KeyP: actions.pause,
   KeyQ: actions.quit,
   KeyX: actions.rotate_clock,
+  ArrowUp: actions.rotate_clock,
   KeyZ: actions.rotate_counter,
   ArrowDown: actions.slow_drop,
   Space: actions.fast_drop,
