@@ -77,7 +77,21 @@ const attemptRotation = (board, player, setPlayer, direction) => {
   if (!isCollided(board, position, shape) && withinBoard(board, position, shape)) {
     setPlayer({ ...player, mino: {...player.mino, shape} });
   } else {
-    return false;
+    //return false;
+    
+    let newPosition = position;
+    let offset = 1;
+
+    while(isCollided(board, newPosition, shape) || !withinBoard(board, newPosition, shape)) {
+      newPosition.column += offset;
+      offset = -(offset + (offset > 0 ? 1 : -1));
+
+      if (offset > shape[0].length) {
+        return false;
+      }
+    }
+
+    setPlayer({ ...player, position: {...player.position, newPosition}, mino: {...player.mino, shape} });
   }
 };
 

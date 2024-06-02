@@ -11,7 +11,8 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
 ## To-Do
 - Design better logo
 - Remember to hide controller input field
-- Fix up rotate (piece should pop out if rotated against wall)
+- Add up arrow as a clockwise rotate
+- Break apart TetrisHelp into more files
 - Add a special wacky mode (more pieces)
     - One block
     - Two blocks
