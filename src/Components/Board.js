@@ -4,7 +4,6 @@ import PieceBox from "./PieceBox";
 import Rules from "./Rules";
 import Wacky from "./Wacky";
 import Tetris from "./Tetris";
-import Controller from "./Controller";
 import { Typography, Box, Grid, Stack, Button, Tooltip } from '@mui/material';
 import RuleIcon from '@mui/icons-material/Rule';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
@@ -13,25 +12,33 @@ import { useBoard } from "../Hooks/useBoard";
 import { usePlayer } from "../Hooks/usePlayer";
 import { useStats } from "../Hooks/useStats";
 import { useWacky } from "../Hooks/useWacky";
+import { useInterval } from "../Hooks/useInterval";
+import { actions, actionForKey } from "./Keys";
+import { playerController } from "../Util/PlayerHelp";
 
-function Board(props) {
-  const rows = 20;
-  const columns = 10;
+function Board() {
+  const rows = 20; // number of rows in the main tetris board
+  const columns = 10; // number of columns in the main tetris board
 
+  // setting up hooks used for the tetris game
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
   const [wacky, setWacky, resetWacky] = useWacky();
   const [player, setPlayer, resetPlayer] = usePlayer();
   const [stats, addLinesMade] = useStats();
   const [board] = useBoard(rows, columns, player, resetPlayer, addLinesMade);
 
+  // start tetris game
   const startGame = () => {
+    document.getElementById("board-input").focus();
     resetGameOver();
   };
 
+  // handle when user switches on/off the wacky switch
   const handleWacky = (event) => {
     setWacky(event.target.checked);
   };
 
+  // handle opening/closing the rules from the rules button
   const [openRules, setOpenRules] = useState(false);
   const handleOpenRules = () => {
     setOpenRules(true);
@@ -40,9 +47,52 @@ function Board(props) {
     setOpenRules(false);
   };
 
+  // autodrop current block
+  useInterval(() => {
+    handleInput(actions.slow_drop);
+  }, 1000);
+
+  // handle key inputs when game has started
+  const onKeyDown = (key) => {
+    if (!gameOver) {
+      const action = actionForKey(key.code);
+
+      if (action === actions.quit) {
+        setGameOver(true);
+      } else {
+        handleInput(action);
+      }
+
+      
+    }
+  };
+  const onKeyUp = (key) => {
+    if (!gameOver) {
+      const action = actionForKey(key.code);
+
+      if (action === actions.quit) {
+        setGameOver(true);
+      }
+    }
+  };
+  const handleInput = (action) => {
+    playerController(action, board, player, setPlayer, setGameOver);
+  };
+
   return (
-    <div className="Board">
-      <Grid container spacing={2}>
+    <div 
+      id="board-input"
+      className="Board"
+      role="button" 
+      tabIndex="0" 
+      aria-pressed="true"
+      onKeyDown={key => onKeyDown(key)}
+      style={{height: 100 + "vh", width: 100 + "vw", overflow: "hidden"}}
+    >
+      <Grid container spacing={2} justifyContent="center" pt={3}>
+        <Grid item xs={12}>
+          <Typography variant="h4" gutterBottom>TETRIS</Typography>
+        </Grid>
         <Grid item>
           <Stack spacing={2} justifyContent="center" alignItems="center">
             <Typography variant="h6" gutterBottom>Mode: {wacky ? "Wacky" : "Normal"}</Typography>
@@ -135,17 +185,6 @@ function Board(props) {
         </Grid>
       </Grid>
       <Rules openRules={openRules} handleCloseRules={handleCloseRules} />
-      {!gameOver ?
-        <Controller 
-          board={board}
-          stats={stats}
-          player={player}
-          setPlayer={setPlayer}
-          setGameOver={setGameOver}
-        />
-          :
-        null
-      }
     </div>
   );
 }

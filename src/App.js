@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import './App.css';
 import Board from "./Components/Board";
-import { Typography, Box } from '@mui/material';
+import { Box } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -30,8 +30,7 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Typography variant="h4" gutterBottom>TETRIS</Typography>
-        <Box pt={3}>
+        <Box width="100%" height="100%" justifyContent="center" alignItems="center">
           <Board />
         </Box>
       </ThemeProvider>

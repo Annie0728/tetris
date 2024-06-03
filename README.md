@@ -10,8 +10,8 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
 
 ## To-Do
 - Design better logo
-- Remember to hide controller input field
-- Add up arrow as a clockwise rotate
+- Delete Controller.js file
+- Add in more stats
 - Add a special wacky mode (more pieces)
     - One block
     - Two blocks
