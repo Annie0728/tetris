@@ -4,6 +4,7 @@ import PieceBox from "./PieceBox";
 import Rules from "./Rules";
 import Wacky from "./Wacky";
 import Tetris from "./Tetris";
+import Stats from "./Stats";
 import { Typography, Box, Grid, Stack, Button, Tooltip } from '@mui/material';
 import RuleIcon from '@mui/icons-material/Rule';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
@@ -13,7 +14,8 @@ import { usePlayer } from "../Hooks/usePlayer";
 import { useStats } from "../Hooks/useStats";
 import { useWacky } from "../Hooks/useWacky";
 import { useInterval } from "../Hooks/useInterval";
-import { actions, actionForKey } from "./Keys";
+import { useDropTime } from "../Hooks/useDropTime";
+import { actions, actionForKey, actionIsDrop } from "./Keys";
 import { playerController } from "../Util/PlayerHelp";
 
 function Board() {
@@ -23,13 +25,16 @@ function Board() {
   // setting up hooks used for the tetris game
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
   const [wacky, setWacky, resetWacky] = useWacky();
-  const [player, setPlayer, resetPlayer] = usePlayer();
+  const [player, setPlayer, resetPlayer, newPlayer] = usePlayer();
   const [stats, addLinesMade] = useStats();
-  const [board] = useBoard(rows, columns, player, resetPlayer, addLinesMade);
+  const [board, resetBoard] = useBoard(rows, columns, player, resetPlayer, addLinesMade);
+  const [dropTime, pauseDropTime, resumeDropTime] = useDropTime(stats);
 
   // start tetris game
   const startGame = () => {
     document.getElementById("board-input").focus();
+    resetBoard();
+    newPlayer();
     resetGameOver();
   };
 
@@ -50,7 +55,7 @@ function Board() {
   // autodrop current block
   useInterval(() => {
     handleInput(actions.slow_drop);
-  }, 1000);
+  }, dropTime);
 
   // handle key inputs when game has started
   const onKeyDown = (key) => {
@@ -58,20 +63,27 @@ function Board() {
       const action = actionForKey(key.code);
 
       if (action === actions.quit) {
+        if (!dropTime) {
+          resumeDropTime();
+        }
         setGameOver(true);
+      } else if (action === actions.pause) {
+        if (dropTime) {
+          pauseDropTime();
+        } else {
+          resumeDropTime();
+        }
       } else {
         handleInput(action);
       }
-
-      
     }
   };
   const onKeyUp = (key) => {
     if (!gameOver) {
       const action = actionForKey(key.code);
 
-      if (action === actions.quit) {
-        setGameOver(true);
+      if (actionIsDrop(action)) {
+        resumeDropTime();
       }
     }
   };
@@ -87,6 +99,7 @@ function Board() {
       tabIndex="0" 
       aria-pressed="true"
       onKeyDown={key => onKeyDown(key)}
+      onKeyUp={key => onKeyUp(key)}
       style={{height: 100 + "vh", width: 100 + "vw", overflow: "hidden"}}
     >
       <Grid container spacing={2} justifyContent="center" pt={3}>
@@ -95,7 +108,6 @@ function Board() {
         </Grid>
         <Grid item>
           <Stack spacing={2} justifyContent="center" alignItems="center">
-            <Typography variant="h6" gutterBottom>Mode: {wacky ? "Wacky" : "Normal"}</Typography>
             {!gameOver ? 
               <HoldBox wacky={wacky} />
                 : 
@@ -106,6 +118,7 @@ function Board() {
                 p={2}
               />
             }
+            <Typography variant="h6" gutterBottom>Mode: {wacky ? "Wacky" : "Normal"}</Typography>
           </Stack>
         </Grid>
         <Grid item>
@@ -170,8 +183,8 @@ function Board() {
           <Stack spacing={2} justifyContent="center" alignItems="center">
             {!gameOver ? 
               <div>
-                <Typography variant="h6" gutterBottom>Score: {stats.score}</Typography>
                 <PieceBox minoes={player.minoes} />
+                <Stats stats={stats} />
               </div>
                 : 
               <Box 

@@ -11,12 +11,13 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
 ## To-Do
 - Design better logo
 - Delete Controller.js file
-- Add in more stats
+- Add special effect for paused game
 - Add a special wacky mode (more pieces)
     - One block
     - Two blocks
     - Three blocks (straight line and angled)
     - Can hold a block
+- Add comments to files
 - Define a theme:
     - ![#282C34](https://placehold.co/15x15/282C34/282C34.png) `#282C34`: background
     - ![#32363D](https://placehold.co/15x15/32363D/32363D.png) `#32363D`: board background

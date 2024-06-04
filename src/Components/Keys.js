@@ -27,4 +27,8 @@ const actionForKey = (keyCode) => {
   return keys[keyCode];
 };
 
-export {actions, keys, actionForKey};
+const actionIsDrop = (action) => {
+  return (action === actions.fast_drop || actions === actions.slow_drop);
+}
+
+export {actions, keys, actionForKey, actionIsDrop};

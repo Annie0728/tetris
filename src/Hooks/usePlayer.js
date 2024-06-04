@@ -27,5 +27,9 @@ export function usePlayer() {
     setPlayer((prev) => buildPlayer(prev))
   }, []);
 
-  return [player, setPlayer, resetPlayer];
+  const newPlayer = useCallback(() => {
+    setPlayer(buildPlayer())
+  }, []);
+
+  return [player, setPlayer, resetPlayer, newPlayer];
 }
