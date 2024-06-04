@@ -74,6 +74,12 @@ function Board() {
           resumeDropTime();
         }
       } else {
+        if (actionIsDrop(action)) {
+          pauseDropTime();
+        } 
+        if (!dropTime) {
+          return;
+        }
         handleInput(action);
       }
     }

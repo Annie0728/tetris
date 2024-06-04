@@ -11,7 +11,7 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
 ## To-Do
 - Design better logo
 - Delete Controller.js file
-- Add special effect for paused game
+- Add special effect to screen for paused game
 - Add a special wacky mode (more pieces)
     - One block
     - Two blocks
