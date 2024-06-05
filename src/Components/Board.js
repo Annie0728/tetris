@@ -5,9 +5,10 @@ import Rules from "./Rules";
 import Wacky from "./Wacky";
 import Tetris from "./Tetris";
 import Stats from "./Stats";
-import { Typography, Box, Grid, Stack, Button, Tooltip } from '@mui/material';
+import { Typography, Box, Grid, Stack, Button, Tooltip, Backdrop } from '@mui/material';
 import RuleIcon from '@mui/icons-material/Rule';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
+import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import { useGameOver } from "../Hooks/useGameOver";
 import { useBoard } from "../Hooks/useBoard";
 import { usePlayer } from "../Hooks/usePlayer";
@@ -29,10 +30,12 @@ function Board() {
   const [stats, addLinesMade] = useStats();
   const [board, resetBoard] = useBoard(rows, columns, player, resetPlayer, addLinesMade);
   const [dropTime, pauseDropTime, resumeDropTime] = useDropTime(stats);
+  const [paused, setPaused] = useState(false);
 
   // start tetris game
   const startGame = () => {
     document.getElementById("board-input").focus();
+    setPaused(false);
     resetBoard();
     newPlayer();
     resetGameOver();
@@ -52,6 +55,14 @@ function Board() {
     setOpenRules(false);
   };
 
+  // handle opening/closing the pause backdrop when user pauses the game
+  const handleOpenPause = () => {
+    setPaused(true);
+  }
+  const handleClosePause = () => {
+    setPaused(false);
+  };
+
   // autodrop current block
   useInterval(() => {
     handleInput(actions.slow_drop);
@@ -64,13 +75,16 @@ function Board() {
 
       if (action === actions.quit) {
         if (!dropTime) {
+          handleClosePause();
           resumeDropTime();
         }
         setGameOver(true);
       } else if (action === actions.pause) {
         if (dropTime) {
+          handleOpenPause();
           pauseDropTime();
         } else {
+          handleClosePause();
           resumeDropTime();
         }
       } else {
@@ -173,7 +187,7 @@ function Board() {
                       size="large" 
                       endIcon={<RuleIcon />} 
                       onClick={() => handleOpenRules()}
-                      sx={{ width: '120px'}}
+                      sx={{ width: '120px' }}
                     >
                       Rules
                     </Button>
@@ -204,6 +218,15 @@ function Board() {
         </Grid>
       </Grid>
       <Rules openRules={openRules} handleCloseRules={handleCloseRules} />
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={paused}
+      >
+        <Stack spacing={3} justifyContent="center" alignItems="center">
+          <PauseCircleIcon size="large" style={{ fontSize: 60 }} />
+          <Typography variant="h6" gutterBottom>Game is paused</Typography>
+        </Stack>
+      </Backdrop>
     </div>
   );
 }

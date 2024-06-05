@@ -117,4 +117,4 @@ const playerController = (action, board, player, setPlayer, setGameOver) => {
   }
 };
 
-export {playerController};
+export {playerController, movePlayer};

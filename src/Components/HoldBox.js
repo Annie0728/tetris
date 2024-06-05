@@ -29,7 +29,7 @@ function HoldBox(props) {
                 display: 'grid',
                 gridTemplateRows: 'repeat(4, 1fr)',
                 gridTemplateColumns: 'repeat(4, 1fr)',
-                gap: '1px'
+                gap: '2px'
               }}
             >
               {board.map(row => row.map((block, x) => <Block key={x} type={block[0]} />))}

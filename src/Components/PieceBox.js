@@ -6,7 +6,7 @@ import { buildBoard, transferToBoard } from '../Util/BoardHelp';
 function PieceBox(props) {
   let board = buildBoard(4, 4);
   const previewMino = props.minoes[0];
-  const { shape, color, className } = previewMino;
+  const { shape, className } = previewMino;
 
   board = transferToBoard(className, false, {row: 0, column: 0}, board, shape);
 
@@ -32,7 +32,7 @@ function PieceBox(props) {
               display: 'grid',
               gridTemplateRows: 'repeat(4, 1fr)',
               gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '1px'
+              gap: '2px'
             }}
           >
             {board.map(row => row.map((block, x) => <Block key={x} type={block[0]} />))}

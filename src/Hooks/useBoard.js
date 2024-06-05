@@ -9,7 +9,7 @@ export function useBoard(rows, columns, player, resetPlayer, addLinesMade) {
   }, []);
 
   useEffect(() => {
-    setBoard((prev) => nextBoard(prev, player, resetPlayer, addLinesMade));
+    setBoard((prev) => nextBoard(prev, player, resetPlayer, addLinesMade, rows));
   }, [player, resetPlayer, addLinesMade]);
 
   return [board, resetBoard];

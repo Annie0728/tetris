@@ -11,7 +11,7 @@ function Tetris(props) {
         display: 'grid',
         gridTemplateRows: 'repeat(' + props.rows + ', 1fr)',
         gridTemplateColumns: 'repeat(' + props.columns + ', 1fr)',
-        gap: '1px'
+        gap: '2px'
       }}
     >
       {props.board.map(row => row.map((block, x) => <Block key={x} type={block[0]} />))}
