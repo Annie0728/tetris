@@ -27,7 +27,7 @@ function Board() {
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
   const [wacky, setWacky, resetWacky] = useWacky();
   const [player, setPlayer, resetPlayer, newPlayer] = usePlayer();
-  const [stats, addLinesMade] = useStats();
+  const [stats, resetStats, addLinesMade] = useStats();
   const [board, resetBoard] = useBoard(rows, columns, player, resetPlayer, addLinesMade);
   const [dropTime, pauseDropTime, resumeDropTime] = useDropTime(stats);
   const [paused, setPaused] = useState(false);
@@ -38,6 +38,7 @@ function Board() {
     setPaused(false);
     resetBoard();
     newPlayer();
+    resetStats();
     resetGameOver();
   };
 

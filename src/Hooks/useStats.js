@@ -10,9 +10,20 @@ const buildStats = () => ({
 export function useStats() {
   const [stats, setStats] = useState(buildStats());
 
-  const addLinesMade = useCallback(() => {
-
+  const resetStats = useCallback(() => {
+    setStats(buildStats());
   }, []);
 
-  return [stats, addLinesMade];
+  const addLinesMade = useCallback((lines) => {
+    setStats((prevStats) => {
+      const score = prevStats.score + lines * 100;
+      const { linesPerLevel } = prevStats;
+      const linesMade = prevStats.linesMade + lines;
+      const level = linesMade > (linesPerLevel * prevStats.level) ? prevStats.level + 1 : prevStats.level;
+
+      return { score, level, linesMade, linesPerLevel };
+    }, [])
+  }, []);
+
+  return [stats, resetStats, addLinesMade];
 }

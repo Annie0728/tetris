@@ -52,6 +52,24 @@ const nextBoard = (prevBoard, player, resetPlayer, addLinesMade, rows) => {
     newBoard = transferToBoard(mino.className, player.collided, position, newBoard, mino.shape);
   }
 
+  const blankRow = newBoard[0].map((_) => [0, false]);
+  let linesCleared = 0;
+
+  newBoard = newBoard.reduce((acc, row) => {
+    if (row.every((column) => column[1] === true)) {
+      linesCleared++;
+      acc.unshift([...blankRow]);
+    } else {
+      acc.push(row)
+    }
+
+    return acc;
+  }, []);
+
+  if (linesCleared > 0) {
+    addLinesMade(linesCleared);
+  }
+
   if (player.collided || player.isFastDropping) {
     resetPlayer();
   }
