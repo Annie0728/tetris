@@ -83,15 +83,13 @@ function Rules(props) {
             <li>Use the up arrow key or "X" key to rotate the tetromino clockwise</li>
             <li>Use the "Z" to rotate the tetromino counter-clockwise</li>
             <li>Use the "Space" key to instantly hard drop the tetromino</li>
+            <li>Use the "C" key to hold a piece. If there is already a piece in the "Hold" box to the left, it swaps the piece currently in play with the one in the box</li>
             <li>Use the "P" key to pause the game</li>
           </ul>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Wacky Tetris is like normal Tetris but with the ability to hold a piece at any time and has extra tetrominoes:
+          Wacky Tetris is like normal Tetris but has extra tetrominoes and there is no ability to hold a piece at any time:
           (Image of the new tetronimoes)
-          <ul>
-            <li>Use the "C" key to hold a piece. If there is already a piece in the "Hold" box to the left, it swaps the piece currently in play with the one in the box</li>
-          </ul>
         </TabPanel>
       </DialogContent>
     </Dialog>

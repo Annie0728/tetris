@@ -26,7 +26,7 @@ function Board() {
   // setting up hooks used for the tetris game
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
   const [wacky, setWacky, resetWacky] = useWacky();
-  const [player, setPlayer, resetPlayer, newPlayer] = usePlayer();
+  const [player, setPlayer, resetPlayer, newPlayer] = usePlayer(wacky);
   const [stats, resetStats, addLinesMade] = useStats();
   const [board, resetBoard] = useBoard(rows, columns, player, resetPlayer, addLinesMade);
   const [dropTime, pauseDropTime, resumeDropTime] = useDropTime(stats);
@@ -37,7 +37,7 @@ function Board() {
     document.getElementById("board-input").focus();
     setPaused(false);
     resetBoard();
-    newPlayer();
+    newPlayer(wacky);
     resetStats();
     resetGameOver();
   };

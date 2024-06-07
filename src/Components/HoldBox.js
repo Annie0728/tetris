@@ -21,7 +21,7 @@ function HoldBox(props) {
       >
         <Stack alignItems="center">
           <Typography variant="h6" gutterBottom>Held Piece:</Typography>
-          {props.wacky ? 
+          {!props.wacky ? 
             <Box 
               height = '15vh'
               width = '15vh'
