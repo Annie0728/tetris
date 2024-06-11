@@ -3,6 +3,7 @@ import { randomMino, randomWackyMino } from "../Components/Tetromino";
 
 const buildPlayer = (wacky, prev) => {
   let minoes;
+  let holdMino;
 
   if (prev) {
     minoes = [...prev.minoes];
@@ -11,17 +12,20 @@ const buildPlayer = (wacky, prev) => {
     } else {
       minoes.unshift(randomMino());
     }
+    holdMino = prev.holdMino;
   } else {
     minoes = Array(2).fill(0).map((_) => wacky ? randomWackyMino() : randomMino());
+    holdMino = null;
   }
 
   return {
     collided: false,
     isFastDropping: false,
+    canHold: true,
     position: { row: 0, column: 4},
     minoes,
     mino: minoes.pop(),
-    holdMino: null
+    holdMino
   }
 };
 

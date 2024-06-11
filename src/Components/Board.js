@@ -25,7 +25,7 @@ function Board() {
 
   // setting up hooks used for the tetris game
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
-  const [wacky, setWacky, resetWacky] = useWacky();
+  const [wacky, setWacky] = useWacky();
   const [player, setPlayer, resetPlayer, newPlayer] = usePlayer(wacky);
   const [stats, resetStats, addLinesMade] = useStats();
   const [board, resetBoard] = useBoard(rows, columns, player, resetPlayer, addLinesMade);
@@ -109,7 +109,7 @@ function Board() {
     }
   };
   const handleInput = (action) => {
-    playerController(action, board, player, setPlayer, setGameOver);
+    playerController(action, wacky, board, player, setPlayer, setGameOver);
   };
 
   return (
@@ -130,7 +130,7 @@ function Board() {
         <Grid item>
           <Stack spacing={2} justifyContent="center" alignItems="center">
             {!gameOver ? 
-              <HoldBox wacky={wacky} />
+              <HoldBox wacky={wacky} mino={player.holdMino} />
                 : 
               <Box 
                 height = '20vh'

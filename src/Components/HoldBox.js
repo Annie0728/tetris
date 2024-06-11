@@ -6,6 +6,12 @@ import { buildBoard, transferToBoard } from '../Util/BoardHelp';
 
 function HoldBox(props) {
   let board = buildBoard(4, 4);
+  const holdMino = props.mino;
+
+  if (holdMino) {
+    const { shape, className } = holdMino;
+    board = transferToBoard(className, false, {row: 0, column: 0}, board, shape);
+  }
 
   return (
     <div className="PieceBox">

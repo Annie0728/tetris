@@ -1,11 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
 export function useWacky() {
   const [wacky, setWacky] = useState(false);
 
-  const resetWacky = useCallback(() => {
-    setWacky(false);
-  }, []);
-
-  return [wacky, setWacky, resetWacky];
+  return [wacky, setWacky];
 }

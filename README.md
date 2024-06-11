@@ -10,8 +10,9 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
 
 ## To-Do
 - Design better logo
-- Delete Controller.js file
+- Better randomization for minoes
 - Add picture of new minoes in the Rules page for wacky
+- Better styling for minoes
 - Add a special wacky mode (more pieces)
     - One block
     - Two blocks

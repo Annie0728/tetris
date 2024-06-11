@@ -1,5 +1,5 @@
 import { actions } from "../Components/Keys";
-import { rotateMino } from "../Components/Tetromino";
+import { randomMino, randomWackyMino, rotateMino } from "../Components/Tetromino";
 
 const isCollided = (board, position, shape) => {
   for (let y = 0; y < shape.length; y++) {
@@ -103,7 +103,25 @@ const attemptMovement = (board, player, setPlayer, action, setGameOver) => {
   setPlayer({...player, collided, isFastDropping, position: nextPosition});
 };
 
-const playerController = (action, board, player, setPlayer, setGameOver) => {
+const holdPiece = (wacky, player, setPlayer) => {
+  const canHold = false;
+  const holdMino = player.mino;
+  const position = { row: 0, column: 4 };
+
+  if (!player.holdMino && player.canHold) {
+    let newMinoes = [...player.minoes];
+    newMinoes.unshift(wacky ? randomWackyMino() : randomMino());
+    let newMino = newMinoes.pop();
+
+    setPlayer({...player, canHold, mino: newMino, minoes: newMinoes, holdMino, position});
+  } else if (player.canHold) {
+    setPlayer({...player, canHold, mino: player.holdMino, holdMino, position});
+  } else {
+    return;
+  }
+}
+
+const playerController = (action, wacky, board, player, setPlayer, setGameOver) => {
   if (!action) {
     return;
   }
@@ -112,6 +130,8 @@ const playerController = (action, board, player, setPlayer, setGameOver) => {
     attemptRotation(board, player, setPlayer, 1);
   } else if (action === actions.rotate_counter) {
     attemptRotation(board, player, setPlayer, -1);
+  } else if (action === actions.hold && !wacky) {
+    holdPiece(wacky, player, setPlayer);
   } else {
     attemptMovement(board, player, setPlayer, action, setGameOver);
   }

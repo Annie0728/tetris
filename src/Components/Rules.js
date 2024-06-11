@@ -88,7 +88,7 @@ function Rules(props) {
           </ul>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Wacky Tetris is like normal Tetris but has extra tetrominoes and there is no ability to hold a piece at any time:
+          Wacky Tetris is like normal Tetris but has extra minoes and there is no ability to hold a piece at any time:
           (Image of the new tetronimoes)
         </TabPanel>
       </DialogContent>
