@@ -102,19 +102,22 @@ const minoes = {
   }
 };
 
-const randomMino = () => {
-  var keys = ['I', 'L', 'J', 'O', 'S', 'Z', 'T'];
-  var random = keys[Math.floor(Math.random() * keys.length)];
+const generateMinoSequence = (wacky) => {
+  let keys = ['I', 'L', 'J', 'O', 'S', 'Z', 'T'];
+  if (wacky) {
+    keys.push('DOT', 'I2', 'I3', 'V');
+  }
 
-  return minoes[random];
-};
+  let sequence = [];
 
-const randomWackyMino = () => {
-  var keys = ['I', 'L', 'J', 'O', 'S', 'Z', 'T', 'DOT', 'I2', 'I3', 'V'];
-  var random = keys[Math.floor(Math.random() * keys.length)];
+  while (keys.length) {
+    const rand = keys[Math.floor(Math.random() * keys.length)];
+    sequence.push(minoes[rand]);
+    keys.splice(keys.indexOf(rand), 1);
+  }
 
-  return minoes[random];
-};
+  return sequence;
+}
 
 const rotateMino = (mino, direction) => {
   const rotatedMino = mino.map((_, index) => mino.map((column) => column[index]));
@@ -126,4 +129,4 @@ const rotateMino = (mino, direction) => {
   return rotatedMino.reverse();
 };
 
-export {minoes, randomMino, randomWackyMino, rotateMino};
+export {minoes, generateMinoSequence, rotateMino};

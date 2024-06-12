@@ -5,7 +5,7 @@ import { buildBoard, transferToBoard } from '../Util/BoardHelp';
 
 function PieceBox(props) {
   let board = buildBoard(4, 4);
-  const previewMino = props.minoes[0];
+  const previewMino = props.minoes[props.minoes.length - 1];
   const { shape, className } = previewMino;
 
   board = transferToBoard(className, false, {row: 0, column: 0}, board, shape);

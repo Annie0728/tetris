@@ -10,14 +10,9 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
 
 ## To-Do
 - Design better logo
-- Better randomization for minoes
 - Add picture of new minoes in the Rules page for wacky
 - Better styling for minoes
-- Add a special wacky mode (more pieces)
-    - One block
-    - Two blocks
-    - Three blocks (straight line and angled)
-    - Can't hold a block
+- Check droptime
 - Add comments to files
 - Define a theme:
     - ![#282C34](https://placehold.co/15x15/282C34/282C34.png) `#282C34`: background

@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { randomMino, randomWackyMino } from "../Components/Tetromino";
+import { generateMinoSequence } from "../Components/Tetromino";
 
 const buildPlayer = (wacky, prev) => {
   let minoes;
@@ -7,14 +7,13 @@ const buildPlayer = (wacky, prev) => {
 
   if (prev) {
     minoes = [...prev.minoes];
-    if (wacky) {
-      minoes.unshift(randomWackyMino());
-    } else {
-      minoes.unshift(randomMino());
+    if (minoes.length === 1) {
+      minoes.unshift(...generateMinoSequence(wacky));
     }
+
     holdMino = prev.holdMino;
   } else {
-    minoes = Array(2).fill(0).map((_) => wacky ? randomWackyMino() : randomMino());
+    minoes = generateMinoSequence(wacky);
     holdMino = null;
   }
 
