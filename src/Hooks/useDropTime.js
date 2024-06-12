@@ -6,7 +6,7 @@ const speedIncrement = 50;
 
 export function useDropTime(stats) {
   const [dropTime, setDropTime] = useState(defaultDropTime);
-  const [prevDropTime, setPrevDropTime] = useState();
+  const [prevDropTime, setPrevDropTime] = useState(null);
 
   const pauseDropTime = useCallback(() => {
     if (dropTime) {
@@ -28,7 +28,6 @@ export function useDropTime(stats) {
   useEffect(() => {
     const speed = speedIncrement * (stats.level - 1);
     const newDropTime = Math.max(defaultDropTime - speed, minDropTime);
-
     setDropTime(newDropTime);
   }, [stats.level, setDropTime]);
 

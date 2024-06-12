@@ -25,10 +25,11 @@ function Block(props) {
       sx={{
         bgcolor: isGhost ? '#32363D' : color + 'CC',
         border: isGhost ? '2px solid' : '4px solid',
-        borderBottomColor: isGhost ? color : color + 'CC',
+        borderTopColor: isGhost ? color : color + 'CC',
         borderLeftColor: isGhost ? color : color + '3F',
-        borderTopColor: isGhost ? color : color + '19',
-        borderRightColor: isGhost ? color : color + '99'
+        borderBottomColor: isGhost ? color : color + '19',
+        borderRightColor: isGhost ? color : color + '99',
+        borderRadius: '4px'
       }}
     />
   );
