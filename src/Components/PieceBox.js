@@ -3,6 +3,8 @@ import Block from "./Block";
 import { Box, Stack, Typography } from '@mui/material';
 import { buildBoard, transferToBoard } from '../Util/BoardHelp';
 
+// the box carrying the next mino piece
+
 function PieceBox(props) {
   let board = buildBoard(4, 4);
   const previewMino = props.minoes[props.minoes.length - 1];

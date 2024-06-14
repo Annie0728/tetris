@@ -1,3 +1,4 @@
+// possible actions the player can take
 const actions = {
   left: "left",
   right: "right",
@@ -10,6 +11,7 @@ const actions = {
   hold: "hold"
 };
 
+// keys to each action
 const keys = {
   ArrowLeft: actions.left,
   ArrowRight: actions.right,
@@ -23,10 +25,12 @@ const keys = {
   KeyC: actions.hold 
 };
 
+// get the action for the key pressed
 const actionForKey = (keyCode) => {
   return keys[keyCode];
 };
 
+// see action is a fast-drop
 const actionIsDrop = (action) => {
   return (action === actions.fast_drop || actions === actions.slow_drop);
 }

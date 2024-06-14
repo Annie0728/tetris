@@ -4,12 +4,12 @@ This project was created and coded with React and JS. The goal of this project i
 
 This app mostly follows this guide: [https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder](https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder)
 
-Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX8HIU&ab_channel=freeCodeCamp.org](https://www.youtube.com/watch?v=ZGOaCxX8HIU&ab_channel=freeCodeCamp.org)
-
-[https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained](https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained)
+But it also follows and takes inspiration from these guides: 
+- [https://www.youtube.com/watch?v=ZGOaCxX8HIU&ab_channel=freeCodeCamp.org](https://www.youtube.com/watch?v=ZGOaCxX8HIU&ab_channel=freeCodeCamp.org)
+- [https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained](https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained)
 
 ## To-Do
-- Add comments to files
+- break up Board.js some more
 - do the ReadMe file
 - Define a theme:
     - ![#282C34](https://placehold.co/15x15/282C34/282C34.png) `#282C34`: background

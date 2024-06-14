@@ -4,6 +4,7 @@ import Board from "./Components/Board";
 import { Box } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+// theme of the app
 const theme = createTheme({
   palette: {
     primary: {

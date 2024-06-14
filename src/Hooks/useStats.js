@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 
+// default stats
 const buildStats = () => ({
   score: 0,
   level: 1,
@@ -7,6 +8,7 @@ const buildStats = () => ({
   linesPerLevel: 10
 });
 
+// define stats
 export function useStats() {
   const [stats, setStats] = useState(buildStats());
 

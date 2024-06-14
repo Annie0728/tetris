@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Typography } from '@mui/material';
 
+// the current stats of the player
+
 function Stats(props) {
   const { score, level, linesMade } = props.stats;
 

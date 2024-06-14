@@ -1,6 +1,9 @@
 import { actions } from "../Components/Keys";
 import { rotateMino } from "../Components/Tetromino";
 
+// functions that help facilitate player commands
+
+// see if the piece has collided with other pieces or the board
 const isCollided = (board, position, shape) => {
   for (let y = 0; y < shape.length; y++) {
     const row = y + position.row;
@@ -19,6 +22,7 @@ const isCollided = (board, position, shape) => {
   return false;
 }
 
+// see if the piece is within the board
 const withinBoard = (board, position, shape) => {
   for (let y = 0; y < shape.length; y++) {
     const row = y + position.row;
@@ -38,13 +42,15 @@ const withinBoard = (board, position, shape) => {
   return true;
 }
 
+// rotate the mino if possible
 const attemptRotation = (board, player, setPlayer, direction) => {
   const shape = rotateMino(player.mino.shape, direction);
   const position = player.position;
   
   if (!isCollided(board, position, shape) && withinBoard(board, position, shape)) {
     setPlayer({ ...player, mino: {...player.mino, shape} });
-  } else {    
+  } else {
+    // perform a wall-kick if rotating into a wall or piece
     let newPosition = position;
     let offset = 1;
 
@@ -61,6 +67,7 @@ const attemptRotation = (board, player, setPlayer, direction) => {
   }
 };
 
+// move the player
 const movePlayer = (delta, position, shape, board) => {
   const nextPosition = {
     row: position.row + delta.row,
@@ -79,6 +86,7 @@ const movePlayer = (delta, position, shape, board) => {
   return { collided: isHit, nextPosition: newPosition };
 };
 
+// move the player piece in the indicated direction if possible
 const attemptMovement = (board, player, setPlayer, action, setGameOver) => {
   const delta = { row: 0, column: 0 };
   let isFastDropping = false;
@@ -95,6 +103,7 @@ const attemptMovement = (board, player, setPlayer, action, setGameOver) => {
 
   const { collided, nextPosition } = movePlayer(delta, player.position, player.mino.shape, board);
 
+  // if player collides with the top, game over
   const isGameOver = collided && player.position.row === 0;
   if (isGameOver) {
     setGameOver(true);
@@ -103,11 +112,13 @@ const attemptMovement = (board, player, setPlayer, action, setGameOver) => {
   setPlayer({...player, collided, isFastDropping, position: nextPosition});
 };
 
+// hold the current piece
 const holdPiece = (player, setPlayer) => {
   const canHold = false;
   const holdMino = player.mino;
   const position = { row: 0, column: 4 };
 
+  // only one hold per collision
   if (!player.holdMino && player.canHold) {
     let newMinoes = [...player.minoes];
     let newMino = newMinoes.pop();
@@ -120,6 +131,7 @@ const holdPiece = (player, setPlayer) => {
   }
 }
 
+// main function handling player input
 const playerController = (action, wacky, board, player, setPlayer, setGameOver) => {
   if (!action) {
     return;

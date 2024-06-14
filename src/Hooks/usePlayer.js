@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { generateMinoSequence } from "../Components/Tetromino";
 
+// player values
 const buildPlayer = (wacky, prev) => {
   let minoes;
   let holdMino;
@@ -28,6 +29,7 @@ const buildPlayer = (wacky, prev) => {
   }
 };
 
+// define the player
 export function usePlayer(wacky) {
   const [player, setPlayer] = useState(buildPlayer(wacky));
 

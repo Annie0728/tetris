@@ -1,3 +1,4 @@
+// all possible mino pieces
 const minoes = {
   0 : {
     shape: [[0]],
@@ -102,6 +103,7 @@ const minoes = {
   }
 };
 
+// generate a random sequence of minoes
 const generateMinoSequence = (wacky) => {
   let keys = ['I', 'L', 'J', 'O', 'S', 'Z', 'T'];
   if (wacky) {
@@ -119,6 +121,7 @@ const generateMinoSequence = (wacky) => {
   return sequence;
 }
 
+// rotate piece
 const rotateMino = (mino, direction) => {
   const rotatedMino = mino.map((_, index) => mino.map((column) => column[index]));
 

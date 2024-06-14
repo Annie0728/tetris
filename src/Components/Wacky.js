@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Typography, Switch, Tooltip } from '@mui/material';
 
+// switch for wacky mode
+
 function Wacky(props) {
   return (
     <Box>

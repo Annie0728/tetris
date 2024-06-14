@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 
+// define gameover state
 export function useGameOver() {
   const [gameOver, setGameOver] = useState(true);
 

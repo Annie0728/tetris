@@ -2,6 +2,8 @@ import React from "react";
 import Block from "./Block";
 import { Box } from '@mui/material';
 
+// the main tetris board
+
 function Tetris(props) {
   return (
     <Box 

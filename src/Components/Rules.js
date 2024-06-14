@@ -43,6 +43,8 @@ function a11yProps(index) {
   };
 }
 
+// pop-up containing the rules of the game
+
 function Rules(props) {
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {

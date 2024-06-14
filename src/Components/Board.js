@@ -19,6 +19,8 @@ import { useDropTime } from "../Hooks/useDropTime";
 import { actions, actionForKey, actionIsDrop } from "./Keys";
 import { playerController } from "../Util/PlayerHelp";
 
+// main layout the tetris game
+
 function Board() {
   const rows = 20; // number of rows in the main tetris board
   const columns = 10; // number of columns in the main tetris board
