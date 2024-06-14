@@ -9,9 +9,8 @@ Also takes inspiration from this guide: [https://www.youtube.com/watch?v=ZGOaCxX
 [https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained](https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained)
 
 ## To-Do
-- Design better logo
-- Add picture of new minoes in the Rules page for wacky
 - Add comments to files
+- do the ReadMe file
 - Define a theme:
     - ![#282C34](https://placehold.co/15x15/282C34/282C34.png) `#282C34`: background
     - ![#32363D](https://placehold.co/15x15/32363D/32363D.png) `#32363D`: board background

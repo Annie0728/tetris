@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Dialog, DialogTitle, DialogContent, IconButton, Box, Typography, Tab, Tabs } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
+import normalPieces from "../Util/normal_pieces.JPG";
+import wackyPieces from "../Util/wacky_pieces.JPG";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -57,7 +59,7 @@ function Rules(props) {
       <DialogTitle sx={{ m: 0, p: 2 }}>Tetris Rules</DialogTitle>
       <IconButton
         aria-label="close"
-        onClick={props.handleClose}
+        onClick={props.handleCloseRules}
         sx={{
           position: 'absolute',
           right: 8,
@@ -86,10 +88,28 @@ function Rules(props) {
             <li>Use the "C" key to hold a piece. If there is already a piece in the "Hold" box to the left, it swaps the piece currently in play with the one in the box</li>
             <li>Use the "P" key to pause the game</li>
           </ul>
+          <Box 
+            alignItems="center" 
+            justifyContent="center" 
+            width="100%" 
+            sx={{ display: 'inline-flex', flexDirection: 'column' }}
+          >
+            <img src={normalPieces} alt="tetrominoes" />
+            <Typography variant="caption">The traditional tetrominoes</Typography>
+          </Box>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Wacky Tetris is like normal Tetris but has extra minoes and there is no ability to hold a piece at any time:
-          (Image of the new tetronimoes)
+          Wacky Tetris is like normal Tetris but has extra minoes and there is no ability to hold a piece. Have fun playing this mode!
+          <Box 
+            alignItems="center" 
+            justifyContent="center" 
+            width="100%" 
+            mt={2} 
+            sx={{ display: 'inline-flex', flexDirection: 'column' }}
+          >
+            <img src={wackyPieces} alt="wacky minoes" />
+            <Typography variant="caption">Extra new pieces in wacky mode</Typography>
+          </Box>
         </TabPanel>
       </DialogContent>
     </Dialog>
