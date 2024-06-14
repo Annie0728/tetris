@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Dialog, DialogTitle, DialogContent, IconButton, Box, Typography, Tab, Tabs } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
-import normalPieces from "../Util/normal_pieces.JPG";
-import wackyPieces from "../Util/wacky_pieces.JPG";
+import normalPieces from "../Photos/normal_pieces.JPG";
+import wackyPieces from "../Photos/wacky_pieces.JPG";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
