@@ -9,8 +9,7 @@ But it also follows and takes inspiration from these guides:
 - [https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained](https://www.youtube.com/watch?v=HEsAr2Yt2do&ab_channel=CodeExplained)
 
 ## To-Do
-- break up Board.js some more
-- do the ReadMe file
+- Write the ReadMe file
 - Define a theme:
     - ![#282C34](https://placehold.co/15x15/282C34/282C34.png) `#282C34`: background
     - ![#32363D](https://placehold.co/15x15/32363D/32363D.png) `#32363D`: board background

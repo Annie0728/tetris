@@ -1,5 +1,5 @@
 import { actions } from "../Components/Keys";
-import { rotateMino } from "../Components/Tetromino";
+import { rotateMino, generateMinoSequence } from "../Components/Tetromino";
 
 // functions that help facilitate player commands
 
@@ -113,18 +113,23 @@ const attemptMovement = (board, player, setPlayer, action, setGameOver) => {
 };
 
 // hold the current piece
-const holdPiece = (player, setPlayer) => {
+const holdPiece = (wacky, player, setPlayer) => {
   const canHold = false;
   const holdMino = player.mino;
   const position = { row: 0, column: 4 };
 
   // only one hold per collision
   if (!player.holdMino && player.canHold) {
+    // player doesn't currently have a held piece
     let newMinoes = [...player.minoes];
     let newMino = newMinoes.pop();
+    if (newMinoes.length === 0) {
+      newMinoes = generateMinoSequence(wacky);
+    }
 
     setPlayer({...player, canHold, mino: newMino, minoes: newMinoes, holdMino, position});
   } else if (player.canHold) {
+    // player does have a held piece
     setPlayer({...player, canHold, mino: player.holdMino, holdMino, position});
   } else {
     return;
@@ -142,7 +147,7 @@ const playerController = (action, wacky, board, player, setPlayer, setGameOver) 
   } else if (action === actions.rotate_counter) {
     attemptRotation(board, player, setPlayer, -1);
   } else if (action === actions.hold && !wacky) {
-    holdPiece(player, setPlayer);
+    holdPiece(wacky, player, setPlayer);
   } else {
     attemptMovement(board, player, setPlayer, action, setGameOver);
   }

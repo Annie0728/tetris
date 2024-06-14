@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import HoldBox from "./HoldBox";
 import PieceBox from "./PieceBox";
+import Menu from "./Menu";
 import Rules from "./Rules";
-import Wacky from "./Wacky";
 import Tetris from "./Tetris";
 import Stats from "./Stats";
-import { Typography, Box, Grid, Stack, Button, Tooltip, Backdrop } from '@mui/material';
-import RuleIcon from '@mui/icons-material/Rule';
-import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
-import PauseCircleIcon from '@mui/icons-material/PauseCircle';
+import Pause from "./Pause";
+import { Typography, Box, Grid, Stack } from '@mui/material';
 import { useGameOver } from "../Hooks/useGameOver";
 import { useBoard } from "../Hooks/useBoard";
 import { usePlayer } from "../Hooks/usePlayer";
@@ -102,7 +100,7 @@ function Board() {
     }
   };
   const onKeyUp = (key) => {
-    if (!gameOver) {
+    if (!gameOver && !paused) {
       const action = actionForKey(key.code);
 
       if (actionIsDrop(action)) {
@@ -134,12 +132,7 @@ function Board() {
             {!gameOver ? 
               <HoldBox wacky={wacky} mino={player.holdMino} />
                 : 
-              <Box 
-                height = '20vh'
-                width = '20vh'
-                gap={4}
-                p={2}
-              />
+              <Box height='20vh' width='20vh' gap={4} p={2} />
             }
             <Typography variant="h6" gutterBottom>Mode: {wacky ? "Wacky" : "Normal"}</Typography>
           </Stack>
@@ -156,47 +149,12 @@ function Board() {
             }}
           >
             {gameOver ? (
-              <Box
-                height = '100%'
-                width = '100%'
-                display="flex" 
-                alignItems="center" 
-                justifyContent="center"
-              >
-                <Stack spacing={5} alignItems="center">
-                  <Button 
-                    variant="contained" 
-                    size="large" 
-                    endIcon={<PlayCircleFilledWhiteIcon />} 
-                    onClick={startGame}
-                  >
-                    Start New Game
-                  </Button>
-                  <Wacky wacky={wacky} handleWacky={handleWacky} />
-                  <Tooltip title="How to play Tetris" arrow componentsProps=
-                    {{
-                      tooltip: {
-                        sx: {
-                          bgcolor: 'primary.hover',
-                          '& .MuiTooltip-arrow': {
-                            color: 'primary.hover',
-                          },
-                        },
-                      },
-                    }}
-                  >
-                    <Button 
-                      variant="contained" 
-                      size="large" 
-                      endIcon={<RuleIcon />} 
-                      onClick={() => handleOpenRules()}
-                      sx={{ width: '120px' }}
-                    >
-                      Rules
-                    </Button>
-                  </Tooltip>
-                </Stack>
-              </Box>
+              <Menu 
+                wacky={wacky} 
+                handleWacky={handleWacky} 
+                startGame={startGame} 
+                handleOpenRules={handleOpenRules} 
+              />
             ) : (
               <Tetris rows={rows} columns={columns} board={board} />
             )}
@@ -205,31 +163,18 @@ function Board() {
         <Grid item>
           <Stack spacing={2} justifyContent="center" alignItems="center">
             {!gameOver ? 
-              <div>
+              <Stack>
                 <PieceBox minoes={player.minoes} />
                 <Stats stats={stats} />
-              </div>
+              </Stack>
                 : 
-              <Box 
-                height = '20vh'
-                width = '20vh'
-                gap={4}
-                p={2}
-              />
+              <Box height='20vh' width='20vh' gap={4} p={2} />
             }
           </Stack>
         </Grid>
       </Grid>
       <Rules openRules={openRules} handleCloseRules={handleCloseRules} />
-      <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={paused}
-      >
-        <Stack spacing={3} justifyContent="center" alignItems="center">
-          <PauseCircleIcon size="large" style={{ fontSize: 60 }} />
-          <Typography variant="h6" gutterBottom>Game is paused</Typography>
-        </Stack>
-      </Backdrop>
+      <Pause paused={paused} />
     </div>
   );
 }
