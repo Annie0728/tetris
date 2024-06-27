@@ -2,7 +2,7 @@
 
 This project was created and coded with React and JS. The goal of this project is to build knowledge in JS and continue working with the React library.
 
-This app mostly follows this guide: [https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder](https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder)
+This app mostly follows this guide, but there are some additions and changes I did in this app: [https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder](https://www.youtube.com/watch?v=yCEIgEOZ36g&ab_channel=RestfulCoder)
 
 But it also follows and takes inspiration from these guides: 
 - [https://www.youtube.com/watch?v=ZGOaCxX8HIU&ab_channel=freeCodeCamp.org](https://www.youtube.com/watch?v=ZGOaCxX8HIU&ab_channel=freeCodeCamp.org)
